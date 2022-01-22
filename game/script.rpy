@@ -1,33 +1,86 @@
-﻿# The script of the game goes in this file.
+# defining characters
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
+define you = Character("[playername]")
+define mom = Character(_('Mom'))
+define narrator = Character(_(''))
+define haru = Character(_('Haruka'))
+define em = Character(_('Emily'))
 
-define e = Character("Eileen")
+# parameters
 
+transform evenlefter:
+    xalign 0.0
+    yalign 1.0
+
+transform slightleft:
+    xalign 0.25
+    yalign 1.0
+
+image em = im.Scale("em.png", 500, 700)
+image haru = im.Scale("haru.png", 500, 700)
 
 # The game starts here.
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+$ playername = renpy.input("What is your name?")
+$ playername = playername.strip()
 
-    scene bg room
+if playername == "" :
+  $playername = "Sam"
+  narrator "Your name has been defaulted to Sam."
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+scene bedroom evening
 
-    show eileen happy
+narrator "The evening light filters through the dusty window blinds, shining directly on a recently-made bed. You plop down on the bed, rumpling the sheets."
 
-    # These display lines of dialogue.
+you "*sigh*"
 
-    e "You've created a new Ren'Py game."
+you "My arms are killing me… I definitely lifted 5 boxes too many."
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+narrator "You hear a polite knock at the half-open door to your room"
 
-    # This ends the game.
+mom "Sorry sweetie, I didn’t think the movers would bail so suddenly. Think on the bright side though, at least you're getting in the exercise that you wanted!"
 
-    return
+narrator "You grumble in mild annoyance"
+
+you "Moooom..."
+
+mom "I know, I know. I'll be downstairs preparing dinner, but it's probably going to take a while."
+
+you "Do you think I could take a break from moving boxes?"
+
+narrator "Your mom thinks for a second, and then nods her head"
+
+mom "Sure, just be down by 7. We're having Pasta tonight!"
+
+you "Thanks mom! You're the best!"
+
+narrator "You have the next hour all to yourself, and you can spend that time doing whatever you want..."
+
+menu: 
+ "What do you want to do?"
+ "Stay home and help mom with dinner.":
+  jump soon
+ "Go explore the new neighborhood.":
+  jump later
+
+label soon:
+you "first"
+jump cont
+
+label later:
+you "second"
+jump cont
+
+label cont:
+scene hall day
+show haru at center
+
+haru "It's nice to meet you [playername]  ... I'm Haruka."
+
+show em at right
+
+em "Hey new kid! Wait up!"
+
+return

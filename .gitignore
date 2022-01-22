@@ -1,2 +1,2 @@
-game/saves/
-.log.txt
+*.save
+log.txt

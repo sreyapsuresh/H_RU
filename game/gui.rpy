@@ -64,22 +64,22 @@ define gui.name_text_font = "fonts/basil_font.ttf"
 define gui.interface_text_font = "fonts/basil_font.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 22
+define gui.text_size = 35
 
 ## The size of character names.
-define gui.name_text_size = 30
+define gui.name_text_size = 45
 
 ## The size of text in the game's user interface.
-define gui.interface_text_size = 22
+define gui.interface_text_size = 35
 
 ## The size of labels in the game's user interface.
-define gui.label_text_size = 24
+define gui.label_text_size = 30
 
 ## The size of text on the notify screen.
-define gui.notify_text_size = 16
+define gui.notify_text_size = 20
 
 ## The size of the game's title.
-define gui.title_text_size = 50
+define gui.title_text_size = 60
 
 
 ## Main and Game Menus #########################################################
@@ -104,8 +104,8 @@ define gui.textbox_yalign = 1.0
 
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = 240
-define gui.name_ypos = 0
+define gui.name_xpos = 210
+define gui.name_ypos = 8
 
 ## The horizontal alignment of the character's name. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -128,7 +128,7 @@ define gui.namebox_tile = False
 ## The placement of dialogue relative to the textbox. These can be a whole
 ## number of pixels relative to the left or top side of the textbox, or 0.5 to
 ## center.
-define gui.dialogue_xpos = 268
+define gui.dialogue_xpos = 250
 define gui.dialogue_ypos = 50
 
 ## The maximum width of dialogue text, in pixels.

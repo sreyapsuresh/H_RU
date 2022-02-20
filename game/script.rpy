@@ -2,7 +2,7 @@
 
 define you = Character("[playername]")
 define mom = Character(_('Mom'))
-define narrator = Character(_(''))
+define narrator = Character(_(''), window_background="gui/narratorbox.png")
 define haru = Character(_('Haruka'))
 define em = Character(_('Emily'))
 

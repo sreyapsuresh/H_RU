@@ -1,6 +1,6 @@
-# adding the click-to-continue button in textbox -- creds: OokamiKasumi
+# adding the click-to-continue button in textbox -- creds: CheeryMoya
 image ctc_anchored:
-       "GUI/arrow.png"
+       "gui/arrow.png"
        yalign 0.96 xalign 0.85 #Adjust these numbers to fit your own textbox
        linear 0.75 alpha 1.0
        linear 0.75 alpha 0.0

@@ -24,9 +24,9 @@ style hyperlink_text:
 style gui_text:
     properties gui.text_properties("interface")
 
-
 style button:
     properties gui.button_properties("button")
+    activate_sound "sfx/select.mp3"
 
 style button_text is gui_text:
     properties gui.text_properties("button")
@@ -230,6 +230,7 @@ style choice_vbox:
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    activate_sound "sfx/select.mp3"
 
 style choice_button_text is default:
     properties gui.button_text_properties("choice_button")
@@ -251,7 +252,7 @@ screen quick_menu():
             style_prefix "quick"
 
             xalign 0.5
-            yalign 1.0
+            yalign 0
 
             textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
@@ -1429,7 +1430,7 @@ screen quick_menu():
             style_prefix "quick"
 
             xalign 0.5
-            yalign 1.0
+            yalign 0
 
             textbutton _("Back") action Rollback()
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)

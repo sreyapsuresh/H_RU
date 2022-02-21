@@ -10,15 +10,15 @@ image ctc_anchored:
 
 # defining characters
 
-define you = Character("[playername]", ctc="ctc_anchored",
+define you = Character("[playername]", window_background="gui/characterbox.png", ctc="ctc_anchored",
         ctc_position="fixed")
-define mom = Character(_('Mom'), ctc="ctc_anchored",
+define mom = Character(_('Mom'), window_background="gui/characterbox.png", ctc="ctc_anchored",
         ctc_position="fixed")
-define narrator = Character(_(''), window_background="gui/narratorbox.png", ctc="ctc_anchored",
+define narrator = Character(_(''), ctc="ctc_anchored",
         ctc_position="fixed")
-define haru = Character(_('Haruka'),ctc="ctc_anchored",
+define haru = Character(_('Haruka'), window_background="gui/characterbox.png", ctc="ctc_anchored",
         ctc_position="fixed")
-define em = Character(_('Emily'), ctc="ctc_anchored",
+define em = Character(_('Emily'), window_background="gui/characterbox.png", ctc="ctc_anchored",
         ctc_position="fixed")
 
 # parameters
@@ -34,19 +34,90 @@ transform slightleft:
 image em = im.Scale("em.png", 500, 700)
 image haru = im.Scale("haru.png", 500, 700)
 
+# pronouns <3 -- creds: deskbot
+
+default Their = "Their"
+default their = "their"
+default Theirs = "Theirs"
+default theirs = "theirs"
+default They = "They"
+default they = "they"
+default Themself = "Themself"
+default themself = "themself"
+default Them = "Them"
+default them = "them"
+default Theyre = "They're"
+default theyre = "they're"
+default TheyWere = "They were"
+default theyWere = "they were"
+
 # The game starts here.
 
 label start:
 
-$ playername = renpy.input("What is your name?")
-$ playername = playername.strip()
+stop music fadeout 3.0
 
+label choosename:
+$ playername = renpy.input("What is your name?", length = 12)
+$ playername = playername.strip()
 if playername == "" :
   $playername = "Sam"
   narrator "Your name has been defaulted to Sam."
 
+  jump choosepronoun
+
+label choosepronoun:
+    menu:
+        "What pronouns do you use?"
+        
+        "He/Him":
+            $ Their = "His"
+            $ their = "his"
+            $ Theirs = "His"
+            $ theirs = "his"
+            $ They = "He"
+            $ they = "he"
+            $ Themself = "Himself"
+            $ themself = "himself"
+            $ Them = "Him"
+            $ them = "him"
+            $ Theyre = "He's"
+            $ theyre = "he's"
+            $ TheyWere = "He was"
+            $ theyWere = "he was"
+        "She/Her":
+            $ Their = "Her"
+            $ their = "her"
+            $ Theirs = "Her"
+            $ theirs = "her"
+            $ They = "She"
+            $ they = "she"
+            $ Themself = "Herself"
+            $ themself = "herself"
+            $ Them = "Her"
+            $ them = "her"
+            $ Theyre = "She's"
+            $ theyre = "she's"
+            $ TheyWere = "She was"
+            $ theyWere = "she was"
+        "They/Them":
+            pass
+
+    "'This is [playername], [Theyre] going to play H_RU.'"
+    
+    menu:
+        
+        "Is this right? This can't be changed later."
+        
+        "Yes.":
+            jump intro
+            
+        "No, let's try something else.":
+            jump choosepronoun
+
+label intro:
 scene bedroom evening
-play music "music/opening.mp3" loop fadein 1.0 volume 0.1
+play music "music/Shenanigans!.mp3" loop fadein 1.0 volume 0.1
 
 narrator "The evening light filters through the dusty window blinds, shining directly on a recently-made bed. You plop down on the bed, rumpling the sheets."
 

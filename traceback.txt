@@ -1,82 +1,50 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-Exception: Could not find font u'fonts/notosans_font.ttf'.
+  File "game/script.rpy", line 49, in script
+    narrator "The evening light filters through the dusty window blinds, shining directly on a recently-made bed. You plop down on the bed, rumpling the sheets."
+  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
+    _window_show(auto=True)
+  File "renpy/common/000window.rpy", line 69, in _window_show
+    renpy.with_statement(trans)
+Exception: Backslash in filename, use '/' instead: u'music\\opening.wav'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
-    python hide:
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/ast.py", line 928, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/python.py", line 2245, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
-    python hide:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
-    ui.interact()
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/ui.py", line 298, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "game/script.rpy", line 49, in script
+    narrator "The evening light filters through the dusty window blinds, shining directly on a recently-made bed. You plop down on the bed, rumpling the sheets."
+  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/ast.py", line 689, in execute
+    statement_name(stmt_name)
+  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/ast.py", line 46, in statement_name
+    i(name)
+  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
+    _window_show(auto=True)
+  File "renpy/common/000window.rpy", line 69, in _window_show
+    renpy.with_statement(trans)
+  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/exports.py", line 1684, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 2762, in do_with
+    clear=clear)
   File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 3325, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 3839, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 2565, in draw_screen
-    renpy.config.screen_height,
-  File "render.pyx", line 492, in renpy.display.render.render_screen
-  File "render.pyx", line 263, in renpy.display.render.render
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/layout.py", line 826, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 263, in renpy.display.render.render
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/layout.py", line 826, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 263, in renpy.display.render.render
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/layout.py", line 826, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 263, in renpy.display.render.render
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/screen.py", line 688, in render
-    child = renpy.display.render.render(self.child, w, h, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 263, in renpy.display.render.render
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/layout.py", line 826, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 263, in renpy.display.render.render
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/layout.py", line 1029, in render
-    surf = render(d, width - x, rh, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 263, in renpy.display.render.render
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/behavior.py", line 795, in render
-    rv = super(Button, self).render(width, height, st, at)
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/layout.py", line 1214, in render
-    xminimum = max(xminimum, size_groups[size_group].width(width, height, st, at))
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/layout.py", line 1151, in width
-    rend = renpy.display.render.render_for_size(i, width, height, st, at)
-  File "render.pyx", line 315, in renpy.display.render.render_for_size
-  File "render.pyx", line 263, in renpy.display.render.render
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/behavior.py", line 795, in render
-    rv = super(Button, self).render(width, height, st, at)
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/layout.py", line 1264, in render
-    st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 263, in renpy.display.render.render
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/text/text.py", line 2096, in render
-    virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/text/text.py", line 639, in __init__
-    glyphs = ts.glyphs(s, self)
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/text/text.py", line 248, in glyphs
-    fo = font.get_font(self.font, self.size, self.bold, self.italic, 0, self.antialias, self.vertical, self.hinting, layout.oversample)
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/text/font.py", line 702, in get_font
-    face = load_face(fn)
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/text/font.py", line 643, in load_face
-    raise Exception("Could not find font {0!r}.".format(orig_fn))
-Exception: Could not find font u'fonts/notosans_font.ttf'.
+  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 4025, in interact_core
+    renpy.audio.audio.periodic()
+  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/audio/audio.py", line 1162, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/audio/audio.py", line 1140, in periodic_thread_main
+    periodic_pass()
+  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/audio/audio.py", line 1082, in periodic_pass
+    c.periodic()
+  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/audio/audio.py", line 518, in periodic
+    topf = load(filename)
+  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/audio/audio.py", line 69, in load
+    rv = renpy.loader.load(fn)
+  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/loader.py", line 789, in load
+    raise Exception("Backslash in filename, use '/' instead: %r" % name)
+Exception: Backslash in filename, use '/' instead: u'music\\opening.wav'
 
 Windows-10-10.0.22000
 Ren'Py 7.4.11.2266
 H_RU 1.0
-Sun Feb 20 20:28:30 2022
+Mon Feb 21 02:55:35 2022

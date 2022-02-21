@@ -10,7 +10,10 @@ init offset = -2
 ## width and height of the game.
 init python:
     gui.init(1280, 720)
-
+    def setVolumes():
+        renpy.music.set_volume(persistent.audio_master)
+        renpy.sound.set_volume(persistent.audio_master)
+        renpy.music.set_volume(persistent.audio_master, channel="voice") #no renpy.voice.set_volume function w/ default channel
 
 
 ################################################################################

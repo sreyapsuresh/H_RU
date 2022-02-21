@@ -1,34 +1,126 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 106, in script
-    "'I'm looking for [player_name]. Did you see [them]? [TheyWere] driving [themself] to the hospital in Johnny's car. I wonder where [they] left [their] own car?'"
-KeyError: u'player_name'
+  File "game/screens.rpy", line 716, in execute
+    screen preferences():
+  File "game/screens.rpy", line 716, in execute
+    screen preferences():
+  File "game/screens.rpy", line 720, in execute
+    use game_menu(_("Preferences"), scroll="viewport"):
+  File "game/screens.rpy", line 421, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 421, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 430, in execute
+    frame:
+  File "game/screens.rpy", line 433, in execute
+    hbox:
+  File "game/screens.rpy", line 439, in execute
+    frame:
+  File "game/screens.rpy", line 442, in execute
+    if scroll == "viewport":
+  File "game/screens.rpy", line 444, in execute
+    viewport:
+  File "game/screens.rpy", line 453, in execute
+    vbox:
+  File "game/screens.rpy", line 454, in execute
+    transclude
+  File "game/screens.rpy", line 720, in execute
+    use game_menu(_("Preferences"), scroll="viewport"):
+  File "game/screens.rpy", line 722, in execute
+    vbox:
+  File "game/screens.rpy", line 754, in execute
+    hbox:
+  File "game/screens.rpy", line 768, in execute
+    vbox:
+  File "game/screens.rpy", line 798, in execute
+    hbox:
+  File "game/screens.rpy", line 799, in execute
+    vbar value FieldValue(persistent, "audio_master", range=1.0, style="slider", action=setVolumes)
+  File "game/screens.rpy", line 799, in keywords
+    vbar value FieldValue(persistent, "audio_master", range=1.0, style="slider", action=setVolumes)
+  File "game/screens.rpy", line 799, in <module>
+    vbar value FieldValue(persistent, "audio_master", range=1.0, style="slider", action=setVolumes)
+NameError: name 'setVolumes' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 106, in script
-    "'I'm looking for [player_name]. Did you see [them]? [TheyWere] driving [themself] to the hospital in Johnny's car. I wonder where [they] left [their] own car?'"
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/ast.py", line 721, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/exports.py", line 1419, in say
-    who(what, *args, **kwargs)
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/character.py", line 1236, in __call__
-    what = self.prefix_suffix("what", self.what_prefix, what, self.what_suffix)
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/character.py", line 1155, in prefix_suffix
-    return (sub(prefix) + sub(body) + sub(suffix))
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/character.py", line 1135, in sub
-    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
-  File "C:\Users\sreya\Downloads\renpy-7.4.11-sdk/renpy/substitutions.py", line 270, in substitute
-    s = formatter.vformat(s, (), kwargs)
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/string.py", line 563, in vformat
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/string.py", line 585, in _vformat
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/string.py", line 646, in get_field
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/string.py", line 605, in get_value
-KeyError: u'player_name'
+  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
+    python hide:
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
+    python hide:
+  File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
+    ui.interact()
+  File "renpy/ui.py", line 298, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "renpy/display/core.py", line 3325, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "renpy/display/core.py", line 3737, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/screen.py", line 436, in visit_all
+    callback(self)
+  File "renpy/display/core.py", line 3737, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "renpy/display/screen.py", line 447, in per_interact
+    self.update()
+  File "renpy/display/screen.py", line 637, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 716, in execute
+    screen preferences():
+  File "game/screens.rpy", line 716, in execute
+    screen preferences():
+  File "game/screens.rpy", line 720, in execute
+    use game_menu(_("Preferences"), scroll="viewport"):
+  File "game/screens.rpy", line 421, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 421, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 430, in execute
+    frame:
+  File "game/screens.rpy", line 433, in execute
+    hbox:
+  File "game/screens.rpy", line 439, in execute
+    frame:
+  File "game/screens.rpy", line 442, in execute
+    if scroll == "viewport":
+  File "game/screens.rpy", line 444, in execute
+    viewport:
+  File "game/screens.rpy", line 453, in execute
+    vbox:
+  File "game/screens.rpy", line 454, in execute
+    transclude
+  File "game/screens.rpy", line 720, in execute
+    use game_menu(_("Preferences"), scroll="viewport"):
+  File "game/screens.rpy", line 722, in execute
+    vbox:
+  File "game/screens.rpy", line 754, in execute
+    hbox:
+  File "game/screens.rpy", line 768, in execute
+    vbox:
+  File "game/screens.rpy", line 798, in execute
+    hbox:
+  File "game/screens.rpy", line 799, in execute
+    vbar value FieldValue(persistent, "audio_master", range=1.0, style="slider", action=setVolumes)
+  File "game/screens.rpy", line 799, in keywords
+    vbar value FieldValue(persistent, "audio_master", range=1.0, style="slider", action=setVolumes)
+  File "game/screens.rpy", line 799, in <module>
+    vbar value FieldValue(persistent, "audio_master", range=1.0, style="slider", action=setVolumes)
+NameError: name 'setVolumes' is not defined
 
-Windows-10-10.0.22000
+Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 H_RU 1.0
-Mon Feb 21 12:54:39 2022
+Mon Feb 21 14:08:27 2022

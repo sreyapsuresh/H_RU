@@ -767,6 +767,13 @@ screen preferences():
 
                 vbox:
 
+                    ##master vol slider
+                    if(config.has_sound or config.has_music or config.has_voice):
+                        label _("Master Volume")
+                        
+                        hbox:
+                            bar value FieldValue(persistent, "audio_master", range=1.0, style="slider", action=setVolumes)
+
                     if config.has_music:
                         label _("Music Volume")
 

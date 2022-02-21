@@ -2,13 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/gui.rpy", line 89: expected statement.
-    config.main_menu_music = "main_theme.wav"
-                           ^
-
-File "game/options.rpy", line 65: expected statement.
-    config.main_menu_music = "music/main_music.wav"
-                           ^
+File "game/gui.rpy", line 17: invalid syntax
+    config.ftfont_scale["fonts/opendyslexic_font.ttf"] = .4.7*scalar
+                                                             ^
+    
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sun Feb 20 20:46:30 2022
+Mon Feb 21 02:55:59 2022

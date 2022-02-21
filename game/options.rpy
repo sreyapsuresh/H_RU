@@ -30,6 +30,7 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+Follow Haruka and Nandini through their journey to overcome their personal struggles in this game that intends to promote mental health awareness in Asian youth.
 """)
 
 
@@ -50,6 +51,8 @@ define config.has_sound = True
 define config.has_music = True
 define config.has_voice = True
 
+## Master volume control scalar (persistent)
+define persistent.audio_master = 1.0
 
 ## To allow the user to play a test sound on the sound or voice channel,
 ## uncomment a line below and use it to set a sample sound to play.
@@ -62,8 +65,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "music/main_music.wav"
-
+define config.main_menu_music = "music/Time For Rest.mp3"
 
 ## Transitions #################################################################
 ##

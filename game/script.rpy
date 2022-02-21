@@ -44,6 +44,7 @@ if playername == "" :
   narrator "Your name has been defaulted to Sam."
 
 scene bedroom evening
+#play music "main_theme.wav"
 
 narrator "The evening light filters through the dusty window blinds, shining directly on a recently-made bed. You plop down on the bed, rumpling the sheets."
 
@@ -68,6 +69,8 @@ narrator "Your mom thinks for a second, and then nods her head"
 mom "Sure, just be down by 7. We're having Pasta tonight!"
 
 you "Thanks mom! You're the best!"
+
+#stop music
 
 narrator "You have the next hour all to yourself, and you can spend that time doing whatever you want..."
 

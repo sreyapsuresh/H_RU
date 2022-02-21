@@ -11,6 +11,11 @@ init offset = -2
 init python:
     gui.init(1280, 720)
 
+    scalar = 1.0
+    config.ftfont_scale["fonts/straight_font.ttf"] = scalar
+    config.ftfont_scale["fonts/scrawl_font.ttf"] = .88*scalar
+    config.ftfont_scale["fonts/opendyslexic_font.ttf"] = .45365*scalar #4-5
+
 
 
 ################################################################################
@@ -56,7 +61,7 @@ define gui.interface_text_color = u'#404040'
 
 define straight_font_path = "fonts/straight_font.ttf"
 define scrawl_font_path = "fonts/scrawl_font.ttf"
-define dyslexic_font_path = "fonts/opendyslexic_font.ttf"
+define dyslexic_font_path = "fonts/opendyslexic_font.ttf"   
 
 ## The font used for in-game text.
 define gui.text_font = gui.preference("font", straight_font_path) 

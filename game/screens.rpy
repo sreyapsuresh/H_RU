@@ -750,6 +750,7 @@ screen preferences():
                     label _("Font Type")
                     textbutton _("Straight") action gui.SetPreference("font", straight_font_path)
                     textbutton _("Scrawl") action gui.SetPreference("font", scrawl_font_path)
+                    textbutton _("Dyslexic") action gui.SetPreference("font", dyslexic_font_path)
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.

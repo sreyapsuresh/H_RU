@@ -54,14 +54,17 @@ define gui.interface_text_color = u'#404040'
 
 ## Fonts and Font Sizes ########################################################
 
+define straight_font_path = "fonts/straight_font.ttf"
+define scrawl_font_path = "fonts/scrawl_font.ttf"
+
 ## The font used for in-game text.
-define gui.text_font = "fonts/straight_font.ttf"
+define gui.text_font = gui.preference("font", straight_font_path) 
 
 ## The font used for character names.
-define gui.name_text_font = "fonts/straight_font.ttf"
+define gui.name_text_font = gui.preference("font", straight_font_path)
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "fonts/straight_font.ttf"
+define gui.interface_text_font = gui.preference("font", straight_font_path)
 
 ## The size of normal dialogue text.
 define gui.text_size = 35

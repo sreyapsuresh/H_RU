@@ -1,10 +1,23 @@
+# adding the click-to-continue button in textbox -- creds: CheeryMoya
+image ctc_anchored:
+       "gui/arrow.png"
+       yalign 0.96 xalign 0.85 #Adjust these numbers to fit your own textbox
+       linear 0.75 alpha 1.0
+       linear 0.75 alpha 0.0
+       repeat  
+
 # defining characters
 
-define you = Character("[playername]")
-define mom = Character(_('Mom'))
-define narrator = Character(_(''))
-define haru = Character(_('Haruka'))
-define em = Character(_('Emily'))
+define you = Character("[playername]", ctc="ctc_anchored",
+        ctc_position="fixed")
+define mom = Character(_('Mom'), ctc="ctc_anchored",
+        ctc_position="fixed")
+define narrator = Character(_(''), window_background="gui/narratorbox.png", ctc="ctc_anchored",
+        ctc_position="fixed")
+define haru = Character(_('Haruka'),ctc="ctc_anchored",
+        ctc_position="fixed")
+define em = Character(_('Emily'), ctc="ctc_anchored",
+        ctc_position="fixed")
 
 # parameters
 
@@ -31,6 +44,7 @@ if playername == "" :
   narrator "Your name has been defaulted to Sam."
 
 scene bedroom evening
+#play music "main_theme.wav"
 
 narrator "The evening light filters through the dusty window blinds, shining directly on a recently-made bed. You plop down on the bed, rumpling the sheets."
 
@@ -55,6 +69,8 @@ narrator "Your mom thinks for a second, and then nods her head"
 mom "Sure, just be down by 7. We're having Pasta tonight!"
 
 you "Thanks mom! You're the best!"
+
+#stop music
 
 narrator "You have the next hour all to yourself, and you can spend that time doing whatever you want..."
 

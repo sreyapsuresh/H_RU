@@ -56,6 +56,7 @@ define gui.interface_text_color = u'#404040'
 
 define straight_font_path = "fonts/straight_font.ttf"
 define scrawl_font_path = "fonts/scrawl_font.ttf"
+define dyslexic_font_path = "fonts/"
 
 ## The font used for in-game text.
 define gui.text_font = gui.preference("font", straight_font_path) 

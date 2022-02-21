@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 1: init statement expects a non-empty block.
+    init -2:
+            ^
+
+Ren'Py Version: Ren'Py 7.4.11.2266
+Sun Feb 20 19:20:14 2022

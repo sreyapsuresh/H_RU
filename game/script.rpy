@@ -1,10 +1,23 @@
+# adding the click-to-continue button in textbox -- creds: OokamiKasumi
+image ctc_anchored:
+       "GUI/arrow.png"
+       yalign 0.96 xalign 0.85 #Adjust these numbers to fit your own textbox
+       linear 0.75 alpha 1.0
+       linear 0.75 alpha 0.0
+       repeat  
+
 # defining characters
 
-define you = Character("[playername]")
-define mom = Character(_('Mom'))
-define narrator = Character(_(''), window_background="gui/narratorbox.png")
-define haru = Character(_('Haruka'))
-define em = Character(_('Emily'))
+define you = Character("[playername]", ctc="ctc_anchored",
+        ctc_position="fixed")
+define mom = Character(_('Mom'), ctc="ctc_anchored",
+        ctc_position="fixed")
+define narrator = Character(_(''), window_background="gui/narratorbox.png", ctc="ctc_anchored",
+        ctc_position="fixed")
+define haru = Character(_('Haruka'),ctc="ctc_anchored",
+        ctc_position="fixed")
+define em = Character(_('Emily'), ctc="ctc_anchored",
+        ctc_position="fixed")
 
 # parameters
 

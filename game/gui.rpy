@@ -13,8 +13,8 @@ init python:
 
     scalar = 1.0
     config.ftfont_scale["fonts/straight_font.ttf"] = scalar
-    config.ftfont_scale["fonts/scrawl_font.ttf"] = .88*scalar
-    config.ftfont_scale["fonts/opendyslexic_font.ttf"] = .45365*scalar #4-5
+    config.ftfont_scale["fonts/scrawl_font.ttf"] = .85*scalar
+    config.ftfont_scale["fonts/opendyslexic_font.ttf"] = .43*scalar #4-5
 
     def setVolumes():
         renpy.music.set_volume(persistent.audio_master)

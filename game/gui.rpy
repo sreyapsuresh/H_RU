@@ -42,7 +42,7 @@ define gui.idle_color = u'#52781f'
 define gui.idle_small_color = u'#888888'
 
 ## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = u'#d9ebc7'
+define gui.hover_color = u'#223b09'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.
@@ -65,10 +65,10 @@ define gui.interface_text_color = u'#404040'
 
 define straight_font_path = "fonts/straight_font.ttf"
 define scrawl_font_path = "fonts/scrawl_font.ttf"
-define dyslexic_font_path = "fonts/opendyslexic_font.ttf"   
+define dyslexic_font_path = "fonts/opendyslexic_font.ttf"
 
 ## The font used for in-game text.
-define gui.text_font = gui.preference("font", straight_font_path) 
+define gui.text_font = gui.preference("font", straight_font_path)
 
 ## The font used for character names.
 define gui.name_text_font = gui.preference("font", straight_font_path)

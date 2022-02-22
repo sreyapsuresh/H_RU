@@ -1,5 +1,5 @@
 *.save
 log.txt
 traceback.txt
-game/saves/persistent
-log.txt
+errors.txt
+game/saves/

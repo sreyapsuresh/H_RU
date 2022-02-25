@@ -90,19 +90,33 @@ screen credits():
             text "Special Thanks" size 100
             null height 50
 
-            text "CheeryMoya"
+            hbox:
+
+                xalign 0.5
+                spacing 200
+
+                text "BaiYu"
+
+                text "bobcgames"
+
+                text "CheeryMoya"
 
             null height 50
 
-            text "deskbot"
+            hbox:
+
+                xalign 0.5
+                spacing 200
+
+                text "minute"
+
+                text "npckc"
+
+                text "deskbot"
 
             null height 200
 
             text "Made with Ren'Py [renpy.version_only]." size 100
-
-            null height 450
-
-            text "Thanks for Playing!" size 100
 
 style credits_hbox:
     spacing 40

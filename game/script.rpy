@@ -6,7 +6,7 @@ image ctc_anchored:
        yalign 0.96 xalign 0.85 #Adjust these numbers to fit your own textbox
        linear 0.75 alpha 1.0
        linear 0.75 alpha 0.0
-       repeat  
+       repeat
 
 # defining characters
 
@@ -69,7 +69,7 @@ if playername == "" :
 label choosepronoun:
     menu:
         "What pronouns do you use?"
-        
+
         "He/Him":
             $ Their = "His"
             $ their = "his"
@@ -104,14 +104,14 @@ label choosepronoun:
             pass
 
     "'This is [playername], [Theyre] going to play H_RU.'"
-    
+
     menu:
-        
+
         "Is this right? This can't be changed later."
-        
+
         "Yes.":
             jump intro
-            
+
         "No, let's try something else.":
             jump choosepronoun
 
@@ -145,7 +145,7 @@ you "Thanks mom! You're the best!"
 
 narrator "You have the next hour all to yourself, and you can spend that time doing whatever you want..."
 
-menu: 
+menu:
  "What do you want to do?"
  "Stay home and help mom with dinner.":
   jump soon
@@ -170,4 +170,36 @@ show em at right
 
 em "Hey new kid! Wait up!"
 
-return
+## This ends the replay mode segment. Doesn't affect normal gameplay.
+$ renpy.end_replay()
+
+label credits:
+
+    # End Credits
+
+    ## We hide the quickmenu for the End Credits so they don't appear at the bottom.
+    $ quick_menu = False
+
+    ## We hide the textbox as well so it doesn't mess with things
+    window hide
+
+    scene black with fade
+
+    ## Find "End Credits Scroll" in extras.rpy to change text.
+    call screen credits
+
+    $ persistent.credits_seen = True
+
+    scene black
+    with fade
+
+    # Players can skip the credits in subsequent playthroughs of the game.
+    label skip_credits:
+
+        pass
+
+    ## We re-enable the quickscreen as the credits are over.
+
+    $ quick_menu = True
+
+    centered "Thank you for playing"

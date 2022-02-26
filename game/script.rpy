@@ -103,7 +103,7 @@ label choosepronoun:
         "They/Them":
             pass
 
-    "'This is [playername], [Theyre] going to play H_RU.'"
+    "'[Their] name is [playername] and [theyre] going to play H_RU.'"
 
     menu:
 
@@ -190,8 +190,7 @@ label credits:
 
     $ persistent.credits_seen = True
 
-    scene black
-    with fade
+    scene black with fade
 
     # Players can skip the credits in subsequent playthroughs of the game.
     label skip_credits:
@@ -202,4 +201,4 @@ label credits:
 
     $ quick_menu = True
 
-    centered "Thank you for playing"
+    centered "Thank you for playing H_RU."

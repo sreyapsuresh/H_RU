@@ -24,14 +24,14 @@ screen credits():
     ## If a player has seen the end credits before, this button appears.
     if persistent.credits_seen:
 
-        textbutton _("Skip End Credits") action Jump("skip_credits") xalign 1.0 yalign 1.0
+        textbutton _("Skip End Credits") action Jump("skip_credits") xalign 0.95 yalign 0.95
 
-    timer 15.0 action Return()
+    timer 28.0 action Return()
     ## Adjust this number to control when the Credits screen is hidden and the game
     ## returns to its normal flow.
     ## Ideally, there is some wait time after the the credits reaches the end.
 
-    frame at credits_scroll(10.0):
+    frame at credits_scroll(25.0):
         ## Adjust this number to control the speed at which the credits scroll.
         background None
         xalign 0.5
@@ -39,23 +39,25 @@ screen credits():
         vbox:
             label "Credits" xalign 0.5
 
-            null height 300
+            null height 200
 
             text "Lead Developer" size 100
             null height 50
             text "Sreya Suresh"
 
-            #null height 200
+            null height 200
 
-            # text "Logo" size 100
-            # null height 50
-            # text "Lorem Ipsum"
+            text "Script" size 100
+            null height 50
 
-            #null height 200
+            hbox:
 
-            # text "Script" size 100
-            # null height 50
-            # text "Lorem Ipsum"
+                xalign 0.5
+                spacing 200
+
+                text "Sreya Suresh"
+
+                text "Kunal Jain"
 
             null height 200
 
@@ -70,20 +72,24 @@ screen credits():
 
             null height 200
 
+            text "Programming" size 100
+            null height 50
+
+            hbox:
+
+                xalign 0.5
+                spacing 200
+
+                text "Sreya Suresh"
+
+                text "Kunal Jain"
+
+            null height 200
+
             text "Composer and Sound Designer" size 100
             null height 50
 
             text "Tim Reichert"
-
-            null height 200
-
-            # text "GUI Template" size 100
-            text "Programming" size 100
-            null height 50
-
-            text "Sreya Suresh"
-
-            text "Kunal Jain"
 
             null height 200
 
@@ -114,13 +120,32 @@ screen credits():
 
                 text "deskbot"
 
+            null height 50
+
+            hbox:
+
+                xalign 0.5
+                spacing 200
+
+                text "Hannah Lee"
+
+                text "3B ISM"
+
+            null height 50
+
+            hbox:
+
+                xalign 0.5
+
+                text "and Rita Landells"
+
             null height 200
 
             text "Made with Ren'Py [renpy.version_only]." size 100
 
 style credits_hbox:
     spacing 40
-    ysize 30
+    ysize 20
 
 style credits_label_text:
     xalign 0.5

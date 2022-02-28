@@ -61,17 +61,6 @@ screen credits():
 
             null height 200
 
-            text "Art" size 100
-            null height 50
-
-            text "Sprites by Sreya Suresh"
-
-            null height 50
-
-            text "Backgrounds by Noraneko"
-
-            null height 200
-
             text "Programming" size 100
             null height 50
 
@@ -83,6 +72,17 @@ screen credits():
                 text "Sreya Suresh"
 
                 text "Kunal Jain"
+
+            null height 200
+
+            text "Art" size 100
+            null height 50
+
+            text "Sprites by Sreya Suresh"
+
+            null height 50
+
+            text "Backgrounds by Noraneko"
 
             null height 200
 

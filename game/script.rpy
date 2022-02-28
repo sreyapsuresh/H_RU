@@ -1,6 +1,8 @@
 init python:
     config.debug_sound = True
+
 # adding the click-to-continue button in textbox -- creds: CheeryMoya
+
 image ctc_anchored:
        "gui/arrow.png"
        yalign 0.96 xalign 0.85 #Adjust these numbers to fit your own textbox
@@ -201,4 +203,4 @@ label credits:
 
     $ quick_menu = True
 
-    centered "Thank you for playing H_RU."
+    centered "Thank you for playing the demo of H_RU."

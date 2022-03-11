@@ -5,8 +5,8 @@
 ## Code Source: https://lemmasoft.renai.us/forums/viewtopic.php?t=42667
 
 transform credits_scroll(speed):
-    ypos 3500
-    linear speed ypos -3500
+    ypos 3250
+    linear speed ypos -3250
     ## Adjust these numbers to be the height of your end credits. Both numbers
     ## should be the same.
 
@@ -24,14 +24,14 @@ screen credits():
     ## If a player has seen the end credits before, this button appears.
     if persistent.credits_seen:
 
-        textbutton _("Skip End Credits") action Jump("skip_credits") xalign 0.95 yalign 0.95
+        textbutton _("Skip End Credits") action Jump("skip_credits") xalign 0.99 yalign .95
 
-    timer 28.0 action Return()
+    timer 25.0 action Return()
     ## Adjust this number to control when the Credits screen is hidden and the game
     ## returns to its normal flow.
     ## Ideally, there is some wait time after the the credits reaches the end.
 
-    frame at credits_scroll(25.0):
+    frame at credits_scroll(15.0):
         ## Adjust this number to control the speed at which the credits scroll.
         background None
         xalign 0.5
@@ -82,7 +82,7 @@ screen credits():
 
             null height 50
 
-            text "Backgrounds by Noraneko"
+            text "Backgrounds by Noraneko Games"
 
             null height 200
 

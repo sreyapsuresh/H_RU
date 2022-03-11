@@ -6,7 +6,7 @@ image ctc_anchored:
        yalign 0.96 xalign 0.85 #Adjust these numbers to fit your own textbox
        linear 0.75 alpha 1.0
        linear 0.75 alpha 0.0
-       repeat  
+       repeat
 
 # defining characters
 
@@ -72,7 +72,7 @@ if name == "" :
 label choosepronoun:
     menu:
         "What pronouns do you use?"
-        
+
         "He/Him":
             $ Their = "His"
             $ their = "his"
@@ -190,18 +190,44 @@ narrator "You glance down at the phone by your side and it's screen flashes the 
 
 menu:
  "With an hour to spare, you decide to..."
- "Stay Home":
+ "Stay home":
   jump day1stayhome
  "Explore":
   jump day1explore
 #--------------------------------------------------------------------------------------------------------
 label day1stayhome:
 
-you "stays home"
+scene kitchen day
+with fade
 
+narrator "You decide to stay home after all and help out your mom with her cooking.
+Exploring an unfamiliar neighborhood by yourself seemed like a recipe for disaster."
+narrator "You walk down the stairs and greet your mom with a smile, slipping on a nearby apron while you're at it."
+mom "Thanks for coming down to help [name]. We're making pasta today, do you mind handing me the sauce in the fridge?"
+narrator "You open the door to the shiny, new fridge and grab an unopened jar of alfredo sauce."
+narrator "You look forward to cooking your first dinner in the new house, and soon your worries drift away to the sound of boiling water and chopping against a cuttingboard."
+jump tempend
+#--------------------------------------------------------------------------------------------------------
 label day1explore:
 
-you "explores"
+scene livingroom night
+with fade
+
+narrator "If you want to explore as much of the new neighborhood as possible, you have to get going."
+narrator "You run down the stairs of your new house, slightly sliding as your socks glide against the wooden floor."
+narrator "Before stepping out the front door, you reach for a pair of sneakers and quickly slip them on."
+
+menu:
+ you "Should I leave now?"
+ "Go outside":
+  jump tempend
+ "Stay home":
+  jump day1stayhome
+#--------------------------------------------------------------------------------------------------------
+label tempend:
+
+#temporary game ending
+
 #------------------------------------------G A M E  O V E R----------------------------------------------
 ## This ends the replay mode segment. Doesn't affect normal gameplay.
 $ renpy.end_replay()

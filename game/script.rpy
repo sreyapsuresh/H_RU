@@ -138,7 +138,6 @@ menu:
   jump day1hopeful
  "Anxious":
   jump day1anxious
-
 #--------------------------------------------------------------------------------------------------------
 label day1hopeful:
 $ feeling = "hopeful"
@@ -148,6 +147,7 @@ n "It isn't the big city life you were used to, but you're sure you'll fit right
 n "Your thoughts are interrupted by your mom yelling from downstairs."
 mom "[name], make sure you unpack soon!"
 n "You look forward to tackling everything head-on. But for now, you have some unpacking to do."
+
 scene black
 with fade
 jump day1unpack
@@ -160,6 +160,7 @@ n "Would you get used to the new school? What if no one liked you?"
 n "Your worries are interrupted by your mom yelling from downstairs."
 mom "[name], make sure you unpack soon!"
 n "You shake your thoughts away and decide to take your mind off of it by setting up your new room."
+
 scene black
 with fade
 jump day1unpack
@@ -174,7 +175,7 @@ n "Looking around the room, now illuminated by the evening glow, you can't help 
 n "It was much larger, and with more memories..."
 if feeling == "hopeful":
  n "But you're sure that this new place would soon feel like home."
-if feeling == "anxious":
+elif feeling == "anxious":
  n "You're not so sure this place will ever be the same."
 n "Your thoughts are one again interrupted, this time by a polite knock at your door."
 you "Come in!"
@@ -230,6 +231,7 @@ n "You walk down the stairs and greet your mom with a smile, slipping on a nearb
 mom "Thanks for coming down to help [name]. We're making pasta today, do you mind handing me the sauce in the fridge?"
 n "You open the door to the shiny, new fridge and grab an unopened jar of alfredo sauce."
 n "You look forward to cooking your first dinner in the new house, and soon your worries drift away to the sound of boiling water and chopping against a cuttingboard."
+
 jump day1dinner
 #--------------------------------------------------------------------------------------------------------
 label day1outside:
@@ -243,7 +245,7 @@ n "You waste no time in turning the doorknob and finally exploring your neighbor
 n "As soon as you open the door, you are greeted by a blast of fresh air and a brilliantly orange sky."
 if feeling == "hopeful":
  n "You walk down the street excitedly. You can't wait to meet your neighbors and learn more about your new town."
-if feeling == "anxious":
+elif feeling == "anxious":
  n "You walk down the street warily, keeping your eyes peeled for any suspicious behavior."
 n "You finally had the chance to look at your new neighborhood and couldn't help but be in awe of your surroundings."
 n "Your new house was perfectly framed by two majestic oak trees that were showing the tell-tale signs of Autumn."
@@ -307,7 +309,8 @@ with fade
 scene street evening
 with fade
 
-n "After several minutes of walking down the streets and taking in the houses that surrounded yours, you finally make your way back to your front door."
+n "After several minutes of walking down the streets and taking in the houses that surrounded yours, you finally
+make your way back to your front door."
 n "You turn the doorknob and the door opens."
 you "I should probably ask mom for a copy of the keys later, I don't think leaving the house unlocked is safe."
 
@@ -321,7 +324,7 @@ with fade
 if outside == "yes":
     mom "[name], you're here just in time. Food's on the table."
     n "You run to the bathroom to wash your hands before getting ready to devour the delectable plate of pasta in front of you."
-if outside == "no":
+elif outside == "no":
     mom "[name], thank you for helping me today."
     you "Of course!"
     n "You waste no time in washing your hands and getting ready to devour the delectable plate of pasta in front of you."
@@ -341,6 +344,8 @@ menu:
 #--------------------------------------------------------------------------------------------------------
 label day1excited:
 
+$ feeling = "excited"
+
 n "Your mom had recently been transferred to this town for her job, and you were excited for what this change would bring."
 mom "You'll be starting school in this week, I really hope you'll enjoy it."
 you "Mom, I know that moving here will be great for you. I'm just happy that you're happy. I'm sure I'll fit right in."
@@ -351,7 +356,10 @@ jump day1dinnercont
 #--------------------------------------------------------------------------------------------------------
 label day1nervous:
 
-n "Your mom had recently been transferred to this town for her job, and while you were excited for her you were still slightly worried about how this new situation would turn out."
+$ feeling = "nervous"
+
+n "Your mom had recently been transferred to this town for her job, and while you were excited for her you were
+still slightly worried about how this new situation would turn out."
 mom "You'll be starting school in this week, I really hope you'll enjoy it."
 you "To be honest, I am a little worried about making new friends. I'm not sure how I'll fit in here."
 n "Your mom reaches over and reassuredly rubbed the back of your hand."
@@ -385,6 +393,20 @@ with fade
 
 scene bedroom day
 with fade
+
+you "(I should probably go downstairs and talk to Mom.)"
+
+scene livingroom day
+with fade
+
+n "After making your way downstairs, you heard your mom talking to someone over the phone."
+if feeling == "excited":
+    mom "Yeah, [name] seems to like it here. [Theyre] a strong kid, I really am lucky to have [them] here with me."
+elif feeling == "nervous":
+    mom "Yeah, [name] might take a while to get used to it, but [theyre] a strong kid so I am sure [they] will be fine."
+you "Good morning."
+n "Your mom turns to face you, surprised at your appearance."
+mom "Hey kiddo, fix yourself some breakfast. We'll be going over to your new school later today."
 #------------------------------------------G A M E  O V E R----------------------------------------------
 ## This ends the replay mode segment. Doesn't affect normal gameplay.
 $ renpy.end_replay()

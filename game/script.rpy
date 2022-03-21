@@ -18,7 +18,7 @@ define n = Character(_(''), ctc="ctc_anchored",
         ctc_position="fixed")
 define haru = Character(_('Haruka'), window_background="gui/characterbox.png", ctc="ctc_anchored",
         ctc_position="fixed")
-define em = Character(_('Emily'), window_background="gui/characterbox.png", ctc="ctc_anchored",
+define nan = Character(_('Nandini'), window_background="gui/characterbox.png", ctc="ctc_anchored",
         ctc_position="fixed")
 
 # parameters
@@ -31,8 +31,17 @@ transform slightleft:
     xalign 0.25
     yalign 1.0
 
-image em = im.Scale("em.png", 500, 700)
+image nan = im.Scale("em.png", 500, 700)
 image haru = im.Scale("haru.png", 500, 700)
+
+# sprites
+
+image haru_A_blink:
+    "harueyesopen.png"
+    3
+    "harueyesclosed.png"
+    .15
+    repeat
 
 # variables
 default feeling = ""
@@ -381,6 +390,8 @@ with fade
 n "Too sleepy to even change out of the clothes you were in earlier, you fall onto your bed and drift to sleep while thinking about the new school you would have to attend in 2 days."
 you "I hope I'll meet someone interesting..."
 #--------------------------------------------------------------------------------------------------------
+label day2start:
+
 scene bedroom day
 with fade
 
@@ -400,13 +411,75 @@ scene livingroom day
 with fade
 
 n "After making your way downstairs, you heard your mom talking to someone over the phone."
-if feeling == "excited":
-    mom "Yeah, [name] seems to like it here. [Theyre] a strong kid, I really am lucky to have [them] here with me."
-elif feeling == "nervous":
-    mom "Yeah, [name] might take a while to get used to it, but [theyre] a strong kid so I am sure [they] will be fine."
 you "Good morning."
 n "Your mom turns to face you, surprised at your appearance."
-mom "Hey kiddo, fix yourself some breakfast. We'll be going over to your new school later today."
+mom "Hey kiddo, you can fix yourself some breakfast. I'm just going to be cleaning today"
+you "Sounds good!"
+
+scene kitchen day
+with fade
+
+n "You take a long look over the recently-stocked pantry and eeventually settle on your favorite brand of cereal and waste no time in scarfing it down."
+
+scene black
+with fade
+
+scene livingroom day
+with fade
+
+you "Hey mom, do you need me to do anything today?"
+n "Your mom straightens her back, turning away from the boxes on the living room floor."
+mom "Well. if you don't mind, I would love some help unpacking these boxes."
+n "She gestures at the large boxes sloppily labelled."
+you "Sure."
+
+scene black
+with fade
+
+scene livingroom evening
+with fade
+
+n "Unpacking the remaining boxes ended up taking longer than you expected, and by the time you were done the sun had already begun to set."
+mom "Thanks [name], I think we're officiall all moved in now!"
+n "You look around the fully furnished room and heave a sigh of relief."
+you "Finally! I don't think I could hold another box for the rest of my life."
+n "Your mom rolls her eyes at your exclamation and stands up."
+mom "First day of school tomorrow. I'll drop you off for your first day."
+n "You groan at the reminder of school tomorrow."
+you "Okay... Are you sure I have to go?"
+n "You put on your best attempt at puppy-dog eyes, but your efforts prove futile as your mom laughs in your face."
+mom "Yes, I'm sure."
+n "Now its your turn to roll your eyes, throwing your hands up in defeat."
+you "Fineeeeee."
+mom "Did you check out the school's website yet?"
+you "No, not yet."
+
+menu:
+ mom "[name]... do you even know what school you're going to starting tomorrow?"
+ "Of course":
+  jump day2careful
+ "Uh...":
+  jump day2careless
+#--------------------------------------------------------------------------------------------------------
+label day2careful:
+
+you "Of course I have, Southview is the only highschool for miles."
+mom "I knew I could rely on you for being on top of things."
+
+jump day2end
+#--------------------------------------------------------------------------------------------------------
+label day2careless:
+
+you "Uh... Yeah of course?"
+n "Your statement ends up coming out more as a question."
+n "Your mom simply sighs in repsponse."
+mom "You know, it would do you some good to stop procrastinating all the time. You'll be going to Southview High. It's the only school around for miles."
+
+jump day2end
+#--------------------------------------------------------------------------------------------------------
+label day2end:
+
+
 #------------------------------------------G A M E  O V E R----------------------------------------------
 ## This ends the replay mode segment. Doesn't affect normal gameplay.
 $ renpy.end_replay()

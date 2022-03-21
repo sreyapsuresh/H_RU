@@ -137,6 +137,8 @@ scene bedroom day
 with fade
 play music "music/Shenanigans!.mp3" loop fadein 1.0 volume 0.1
 
+show haru_A_blink at left
+
 n "A heavy box slams onto the floor with a thud."
 you "And that's the last of them!"
 n "You heave a sigh of relief while stretching your now-sore arms."

@@ -1,5 +1,14 @@
+default blink_timer = renpy.random.random()
 init python:
     config.debug_sound = True
+    def blink(trans, st, at, type):
+        global blink_timer
+        if(type == 0): #closed timer 
+            if(st > blink_timer):
+                blink_timer = renpy.random.randint(2,4)
+                return None
+            else:
+                return 0
 # adding the click-to-continue button in textbox -- creds: CheeryMoya
 image ctc_anchored:
        "gui/arrow.png"
@@ -38,7 +47,7 @@ image haru = im.Scale("haru.png", 500, 700)
 
 image haru_A_blink:
     "harueyesopen.png"
-    3
+    function blink
     "harueyesclosed.png"
     .15
     repeat

@@ -3,12 +3,11 @@ init python:
     config.debug_sound = True
     def blink(trans, st, at):
         global blink_timer
-        if(type == 0): #closed timer 
-            if(st > blink_timer):
-                blink_timer = renpy.random.randint(2,4)
-                return None
-            else:
-                return 0
+        if(st > blink_timer):
+            blink_timer = renpy.random.randint(2,4)
+            return None
+        else:
+            return 0
 # adding the click-to-continue button in textbox -- creds: CheeryMoya
 image ctc_anchored:
        "gui/arrow.png"

@@ -1,7 +1,7 @@
 default blink_timer = renpy.random.random()
 init python:
     config.debug_sound = True
-    def blink(trans, st, at, type):
+    def blink(trans, st, at):
         global blink_timer
         if(type == 0): #closed timer 
             if(st > blink_timer):

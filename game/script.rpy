@@ -483,11 +483,71 @@ label day2careless:
 you "Uh... Yeah of course?"
 n "Your statement ends up coming out more as a question."
 n "Your mom simply sighs in repsponse."
-mom "You know, it would do you some good to stop procrastinating all the time. You'll be going to Southview High. It's the only school around for miles."
+mom "You know, it would do you some good to be more responsible. You'll be going to Southview High. It's the only school around for miles."
 
-jump day2end
+jump day2cont
 #--------------------------------------------------------------------------------------------------------
-label day2end:
+label day2cont:
+
+you "(Northview High, huh? I wonder how different it is from my old school.)"
+n "Your mom speaks up again before you could imagine what your future school would look like."
+mom "It's actually not too far away if you want to go visit sometime today. There won't be classes going on, but you can get used to the route there."
+n "You ponder your mom's suggestion before deciding that it would be fun to see what the school looks like without kids your age everywhere."
+you "I'll go get changed then, I want to see what it's like."
+mom "Okay, take your phone so you don't get lost."
+n "You throw your mom a quick nod and proceed back up the stairs to change into some presentable clothes, in the chance you get seen by any future classmates."
+
+scene black
+with fade
+
+scene bedroom evening
+with fade
+
+n "You quickly slip on the first clean set of clothes you find and make your way back downstairs."
+
+scene livingroom evening
+with fade
+
+you "Okay mom, I'll be going now."
+n "Your mom yells her response from the kitchen."
+mom "Have fun [name], you can take your time!"
+
+scene street evening
+with fade
+
+n "You walk outside and pull up the directions to the new school on your phone."
+you "(Hmm... a few turns but nothing too crazy.)"
+n "With that you set off on your walk through the neighborhood, stopping occasionally to check the route on your phone."
+
+scene school evening
+with fade
+
+n "After almost 10 minutes of walking, your phone finally signals that you have reached your destination."
+n "You take a second to admire the large building in front of you."
+you "(This school is HUGE!!!)"
+you "For being the 'only school for miles,' Northview definitely did not disappoint. You were sure it was atleast twice as big as your last highschool."
+n "You take another step forward and notice the ajar gates. Surely it wouldn't hurt to explore for a bit."
+you "(I'm sure it's fine to walk around a bit.)"
+
+n "With that, you walk through the gates and pause."
+
+menu:
+ you "Where should I go?"
+ "Go inside":
+  jump day2inside
+ "Walk over to the school trackfield":
+  jump day2track
+#--------------------------------------------------------------------------------------------------------
+label day2inside:
+#--------------------------------------------------------------------------------------------------------
+label day2track:
+
+
+
+
+
+
+
 
 
 #------------------------------------------G A M E  O V E R----------------------------------------------

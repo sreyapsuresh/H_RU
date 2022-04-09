@@ -51,6 +51,7 @@ default outside = ""
 default faveFood = False
 default faveColor = False
 default faveAnimal = False
+default pronounsTold = False
 
 # pronouns <3 -- creds: deskbot
 
@@ -519,23 +520,24 @@ with fade
 
 n "After almost 10 minutes of walking, your phone finally signals that you have reached your destination."
 n "You take a second to admire the large building in front of you."
-you "(This school is HUGE!!!)"
+you "(This school is HUGE)"
 you "For being the 'only school for miles,' Northview definitely did not disappoint. You were sure it was atleast twice as big as your last highschool."
-n "You take another step forward and notice the ajar gates. Surely it wouldn't hurt to explore for a bit."
-you "(I'm sure it's fine to walk around a bit.)"
+n "You take another step forward and notice the ajar gates."
+you "(I'm sure it's fine to walk around a bit)"
 
 n "With that, you walk through the gates and pause after further taking in the school campus."
-you "I guess it wouldn't hurt to walk around the classes. I'm already inside after all."
+you "(I guess it wouldn't hurt to walk around the classes. I'm already inside after all)"
 
-n "You walk further inside the room"
-n "you make your way upstairs"
-
+n "You make your way into the building and walk around the empty hallways for a while."
+n "Eventually you stop in front of a classroom labelled 12-A."
+you "12-A... This could be my class."
+n "You lean against the window of the door, trying to catch a glimpse of the interior of the classroom."
+n "However, a sudden movement inside startles you."
 you "(!!!)"
 you "(Is there someone else here?!)"
-
 n "You peer closer in the room, squinting your eyes to see the distant figure."
 n "It takes a few more seconds before the blob in the classroom begins to take shape as a young girl your age."
-you "(Why would someone willingly be at school on a Sunday???)"
+you "(Is that... a student?)"
 n "The girl then walks up to the door you stand in front of, and opens it."
 
 show haru_A_blink
@@ -580,10 +582,12 @@ menu:
 label day2braids:
 n "The girl's hair was tightly pulled into two braids that framed her face."
 you "(Her hair is so silky...)"
+jump day2books
 #--------------------------------------------------------------------------------------------------------
 label day2clothes:
 n "The girl in front of you donned a big blue sweater and leggings. She also had on a particularly thick pair of round glasses."
 you "(That's a cute sweater)"
+jump day2books
 #--------------------------------------------------------------------------------------------------------
 label day2books:
 n "The girl coughed, apparently conscious of your eyes on her."
@@ -608,6 +612,10 @@ menu introduction:
     "My favorite animal is..." if not faveAnimal:
         $ faveAnimal = True
         jump day2faveanimal
+    "I use [they]/[them] pronouns." if not pronounsTold:
+        $ pronounsTold = True
+        haru "Okay, thanks for letting me know."
+        haru "I use She/Her pronouns."
     "That's all.":
         jump day2introcomplete
 #--------------------------------------------------------------------------------------------------------
@@ -714,7 +722,9 @@ menu:
         mom "Of course."
         n "She steps away from you but her smile remains on her face."
     "Boring":
-        #block of code to run
+        mom “I’m sorry to hear that, I was hoping you’d have fun.”
+        n “You simply shrug at her in response.”
+
 
 mom "Well then, you should get going to bed. You have an early day tomorrow."
 you "Goodnight, Mom."
@@ -728,7 +738,7 @@ with fade
 
 n "You crawl into bed almost as soon as making your way to your room."
 you "(Haruka Endo... I wonder if I'll see her around more.)"
-n "Finally, you succumb to the drowsiness and find yourself drifting away slowly, dreaming of the future."
+n "Finally, you succumb to the drowsiness and find yourself drifting away slowly, dreaming of what the future held."
 
 #------------------------------------------G A M E  O V E R----------------------------------------------
 ## This ends the replay mode segment. Doesn't affect normal gameplay.

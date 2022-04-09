@@ -1,13 +1,5 @@
-default blink_timer = renpy.random.random()
 init python:
     config.debug_sound = True
-    def blink(trans, st, at):
-        global blink_timer
-        if(st > blink_timer):
-            blink_timer = renpy.random.randint(2,4)
-            return None
-        else:
-            return 0
 # adding the click-to-continue button in textbox -- creds: CheeryMoya
 image ctc_anchored:
        "gui/arrow.png"
@@ -28,6 +20,8 @@ define haru = Character(_('Haruka'), window_background="gui/characterbox.png", c
         ctc_position="fixed")
 define nan = Character(_('Nandini'), window_background="gui/characterbox.png", ctc="ctc_anchored",
         ctc_position="fixed")
+define unknown = Character(_('???'), window_background="gui/characterbox.png", ctc="ctc_anchored",
+        ctc_position="fixed")
 
 # parameters
 
@@ -46,7 +40,7 @@ image haru = im.Scale("haru.png", 500, 700)
 
 image haru_A_blink:
     "harueyesopen.png"
-    function blink
+    3
     "harueyesclosed.png"
     .15
     repeat
@@ -54,6 +48,9 @@ image haru_A_blink:
 # variables
 default feeling = ""
 default outside = ""
+default faveFood = False
+default faveColor = False
+default faveAnimal = False
 
 # pronouns <3 -- creds: deskbot
 
@@ -144,8 +141,6 @@ label day1start:
 scene bedroom day
 with fade
 play music "music/Shenanigans!.mp3" loop fadein 1.0 volume 0.1
-
-show haru_A_blink at right
 
 n "A heavy box slams onto the floor with a thud."
 you "And that's the last of them!"
@@ -450,7 +445,7 @@ scene livingroom evening
 with fade
 
 n "Unpacking the remaining boxes ended up taking longer than you expected, and by the time you were done the sun had already begun to set."
-mom "Thanks [name], I think we're officiall all moved in now!"
+mom "Thanks [name], I think we're officially all moved in now!"
 n "You look around the fully furnished room and heave a sigh of relief."
 you "Finally! I don't think I could hold another box for the rest of my life."
 n "Your mom rolls her eyes at your exclamation and stands up."
@@ -473,17 +468,17 @@ menu:
 #--------------------------------------------------------------------------------------------------------
 label day2careful:
 
-you "Of course I have, Southview is the only highschool for miles."
+you "Of course I have, Northview is the only highschool for miles."
 mom "I knew I could rely on you for being on top of things."
 
-jump day2end
+jump day2cont
 #--------------------------------------------------------------------------------------------------------
 label day2careless:
 
 you "Uh... Yeah of course?"
 n "Your statement ends up coming out more as a question."
 n "Your mom simply sighs in repsponse."
-mom "You know, it would do you some good to be more responsible. You'll be going to Southview High. It's the only school around for miles."
+mom "You know, it would do you some good to be more responsible. You'll be going to Northview High. It's the only school around for miles."
 
 jump day2cont
 #--------------------------------------------------------------------------------------------------------
@@ -529,26 +524,211 @@ you "For being the 'only school for miles,' Northview definitely did not disappo
 n "You take another step forward and notice the ajar gates. Surely it wouldn't hurt to explore for a bit."
 you "(I'm sure it's fine to walk around a bit.)"
 
-n "With that, you walk through the gates and pause."
+n "With that, you walk through the gates and pause after further taking in the school campus."
+you "I guess it wouldn't hurt to walk around the classes. I'm already inside after all."
+
+n "You walk further inside the room"
+n "you make your way upstairs"
+
+you "(!!!)"
+you "(Is there someone else here?!)"
+
+n "You peer closer in the room, squinting your eyes to see the distant figure."
+n "It takes a few more seconds before the blob in the classroom begins to take shape as a young girl your age."
+you "(Why would someone willingly be at school on a Sunday???)"
+n "The girl then walks up to the door you stand in front of, and opens it."
+
+show haru_A_blink
+
+unknown "!!!"
+n "The girl inside must've not seen you staring into the room, as she bumps into you as soon as she steps out of the room."
 
 menu:
- you "Where should I go?"
- "Go inside":
-  jump day2inside
- "Walk over to the school trackfield":
-  jump day2track
+ "Get mad":
+  jump day2mad
+ "Apologize":
+  jump day2sorry
 #--------------------------------------------------------------------------------------------------------
-label day2inside:
+label day2mad:
+you "Watch it!"
+n "The girl makes eye contact with you and her glare immediately sharpens."
+unknown "You should've moved."
+n "Her tone was icy and almost as frigid as her face."
+you "(Maybe I should say sorry...)"
+you "No, I'm sorry. I should've moved."
+n "Her gaze slightly softened at your apology, and she nods in acceptance."
+jump day2bump
 #--------------------------------------------------------------------------------------------------------
-label day2track:
+label day2sorry:
+you "Sorry, I didn't expect you to come out here."
+n "The girl makes eye contact with you and slightly tilts her head down in apology."
+jump day2bump
+#--------------------------------------------------------------------------------------------------------
+label day2bump:
+unknown "It's okay, I didn't realize there was someone outside."
+n "You take this opportunity to fully take in the appearance of the girl in front of you. She looked to be about your age."
 
+menu:
+ n "The first thing you notice is..."
+ "Her hair":
+  jump day2braids
+ "Her clothes":
+  jump day2clothes
+ "The books in her hands":
+  jump day2books
+#--------------------------------------------------------------------------------------------------------
+label day2braids:
+n "The girl's hair was tightly pulled into two braids that framed her face."
+you "(Her hair is so silky...)"
+#--------------------------------------------------------------------------------------------------------
+label day2clothes:
+n "The girl in front of you donned a big blue sweater and leggings. She also had on a particularly thick pair of round glasses."
+you "(That's a cute sweater)"
+#--------------------------------------------------------------------------------------------------------
+label day2books:
+n "The girl coughed, apparently conscious of your eyes on her."
+unknown "Can I help you?"
+you "(Oops, I was staring too hard)"
+you "(Hopefully she doesn't think I'm a weirdo)"
 
+menu:
+ "Introduce yourself":
+  jump day2introduce
+#--------------------------------------------------------------------------------------------------------
+label day2introduce:
+you "My name is [name], I'm a senior starting here tomorrow and..."
 
+menu introduction:
+    "My favorite food is..." if not faveFood:
+        $ faveFood = True
+        jump day2favefood
+    "My favorite color is..." if not faveColor:
+        $ faveColor = True
+        jump day2favecolor
+    "My favorite animal is..." if not faveAnimal:
+        $ faveAnimal = True
+        jump day2faveanimal
+    "That's all.":
+        jump day2introcomplete
+#--------------------------------------------------------------------------------------------------------
+label day2favefood:
+menu:
+        you "(My favorite food has to be...)"
+        "Pizza":
+            unknown "A classic."
+        "Cheeseburgers":
+            unknown "Oh, nice." #she HATES burgers
+        "Pasta":
+            unknown "Um, that's cool." #she hates pasta
+        "Sushi":
+            unknown "Same here."
+        "Something else...":
+            $ food = renpy.input("My favorite food is...", length = 12)
+            if food == "" :
+              you "Nevermind."
+              unknown "Um, Okay."
+            you "My favorite food has to be [food]."
+            unknown "I don't think I've had that before."
 
+jump introduction
+#--------------------------------------------------------------------------------------------------------
+label day2favecolor:
+menu:
+        you "(My favorite color is...)"
+        "White":
+            unknown "Nice."
+        "Black":
+            unknown "Nice." #she HATES burgers
+        "Blue":
+            unknown "Same for me."
+        "Red":
+            unknown "Nice."
+        "Green":
+            unknown "Nice."
+        "Yellow":
+            unknown "Nice."
+        "Purple":
+            unknown "Nice."
+        "Something else...":
+            $ color = renpy.input("My favorite color is...", length = 12)
+            if color == "" :
+              you "Nevermind."
+              unknown "Um, Okay."
+            you "My favorite color has to be [color]."
+            unknown "That sounds like a nice color."
 
+jump introduction
+#--------------------------------------------------------------------------------------------------------
+label day2faveanimal:
+menu:
+        you "(My favorite animals are...)"
+        "Dogs":
+            unknown "I hate dogs."
+            you "(Oh...)"
+        "Cats":
+            unknown "Same! I love cats."
+        "Something else...":
+            $ animal = renpy.input("My favorite animal is... (Enter in singular form)", length = 12)
+            if animal == "" :
+              you "Nevermind."
+              unknown "Um, Okay."
+            you "My favorite animal has to be [animal]s."
+            unknown "I haven't heard of that one before."
 
+jump introduction
+#--------------------------------------------------------------------------------------------------------
+label day2introcomplete:
+unknown "Well, it's nice to meet you [name]. My name is Haruka Endo."
+haru "I'm a senior here, so I'll probably see you around."
+you "(She's in my grade? I thought she was way younger.)"
+n "You smile at her, happy to have met a potential classmate."
+n "The two of you stand in silence for a few seconds before Haruka clears her throat."
+haru "Well, I'll get going then. I'll see you tomorrow [name]."
+n "You snap back to your senses and check the time on your phone."
+you "(I should probably head home now too)"
+n "You look up and notice that Haruka was already gone."
+you "Huh, she must've been in a rush."
+you "(I'll probably see her tomorrow anyways)"
+n "Taking one last look at the classroom behind you, you sigh at the thought of coming back there the next day."
+n "You step forward and stretch your arms in front of you."
+you "Time to get back home!"
 
+scene black
+with fade
 
+scene livingroom evening
+with fade
+
+you "Mom! I'm home."
+mom "Hey [name], how was the school?"
+
+menu:
+    "Fun":
+        you "It was fun! I managed to talk to a girl my age there."
+        mom "Oh that sounds fun, did you catch her name?"
+        you "Yeah, Haruka Endo."
+        mom "Endo? That sounds familiiar but I can't put my finger on it..."
+        mom "Well, regardless, I'm glad you had fun today."
+        you "Yeah, thanks for letting me visit."
+        n "Your mom smiles at you fondly before giving you a warm hug."
+        mom "Of course."
+        n "She steps away from you but her smile remains on her face."
+    "Boring":
+        #block of code to run
+
+mom "Well then, you should get going to bed. You have an early day tomorrow."
+you "Goodnight, Mom."
+mom "Goodnight [name], sweet dreams."
+
+scene bedroom night
+with fade
+
+scene Black
+with fade
+
+n "You crawl into bed almost as soon as making your way to your room."
+you "(Haruka Endo... I wonder if I'll see her around more.)"
+n "Finally, you succumb to the drowsiness and find yourself drifting away slowly, dreaming of the future."
 
 #------------------------------------------G A M E  O V E R----------------------------------------------
 ## This ends the replay mode segment. Doesn't affect normal gameplay.
